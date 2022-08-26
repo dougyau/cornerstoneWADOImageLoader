@@ -35,6 +35,7 @@ const defaultConfig = {
       strict: options.strict,
     },
   },
+  workerRecycleThreshold: 0,
 };
 
 let config;
@@ -73,6 +74,11 @@ function startTaskOnWebWorker() {
       const end = new Date().getTime();
 
       statistics.totalTimeDelayedInMS += end - task.added;
+
+      if (webWorkers[i].numTasksCompleted > 1) {
+        console.log('kill the worker');
+        webWorkers[i].terminate();
+      }
 
       // assign this task to this web worker and send the web worker
       // a message to execute it

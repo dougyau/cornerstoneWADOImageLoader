@@ -49,7 +49,7 @@
     "prepublishOnly": "npm run build && npm run test:ci && npm run doc:generate"
   },
   "peerDependencies": {
-    "cornerstone-core": "^2.6.0"
+    "cornerstone-core": "git+ssh://git@github.com:dougyau/cornerstone.git"
   },
   "devDependencies": {
     "@babel/core": "^7.15.4",
@@ -66,7 +66,7 @@
     "concat": "^1.0.3",
     "copy-webpack-plugin": "9.0.1",
     "core-js": "^3.17.2",
-    "cornerstone-core": "^2.5.0",
+    "cornerstone-core": "git+ssh://git@github.com:dougyau/cornerstone.git",
     "coveralls": "^3.1.1",
     "cross-env": "^7.0.3",
     "docdash": "^1.2.0",
@@ -104,7 +104,7 @@
   "dependencies": {
     "@cornerstonejs/codec-charls": "^0.1.1",
     "@cornerstonejs/codec-libjpeg-turbo-8bit": "^0.0.7",
-    "@cornerstonejs/codec-openjpeg": "^0.1.0",
+    "@cornerstonejs/codec-openjpeg": "git+ssh://git@github.com:dougyau/codec-openjpeg.git",
     "dicom-parser": "^1.8.9",
     "pako": "^2.0.4"
   },
