@@ -255,7 +255,6 @@ function postProcessDecodedPixels(imageFrame, options, start) {
   const end = new Date().getTime();
 
   imageFrame.decodeTimeInMS = end - start;
-  console.log(imageFrame);
 
   return imageFrame;
 }
