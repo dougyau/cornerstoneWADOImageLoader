@@ -95,6 +95,7 @@ function decodeImageFrame(
     case '1.2.840.10008.1.2.4.90':
       opts = {
         ...imageFrame,
+        signed: imageFrame.pixelRepresentation === 1,
       };
 
       // JPEG 2000 Lossless
