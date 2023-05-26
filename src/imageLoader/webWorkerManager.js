@@ -49,6 +49,9 @@ const statistics = {
   totalTimeDelayedInMS: 0,
 };
 
+let downscale = 1024;
+let isDownscaleActive = true;
+
 /**
  * Function to start a task on a web worker
  */
@@ -81,6 +84,8 @@ function startTaskOnWebWorker() {
         {
           taskType: task.taskType,
           workerIndex: i,
+          downscale: downscale,
+          isDownscaleActive: isDownscaleActive,
           data: task.data,
         },
         task.transferList
@@ -175,6 +180,7 @@ function spawnWebWorker() {
  */
 function initialize(configObject) {
   configObject = configObject || defaultConfig;
+  downscale = configObject.downscale || 1024;
 
   // prevent being initialized more than once
   if (config) {
@@ -355,6 +361,18 @@ function getStatistics() {
   return statistics;
 }
 
+function setDownscale(newScale) {
+  downscale = newScale;
+}
+
+function setDownscaleState(newState) {
+  isDownscaleActive = newState;
+}
+
+function getDownscaleState() {
+  return isDownscaleActive;
+}
+
 export default {
   initialize,
   loadWebWorkerTask,
@@ -364,4 +382,7 @@ export default {
   cancelTask,
   webWorkers,
   terminate,
+  setDownscale,
+  setDownscaleState,
+  getDownscaleState,
 };
