@@ -61,6 +61,7 @@ async function decodeAsync(compressedImageFrame, imageInfo) {
 
   // get information about the decoded image
   const frameInfo = decoder.getFrameInfo();
+  frameInfo.isSigned = imageInfo.signed;
   // get the decoded pixels
   const decodedBufferInWASM = decoder.getDecodedBuffer();
   const imageFrame = new Uint8Array(decodedBufferInWASM.length);

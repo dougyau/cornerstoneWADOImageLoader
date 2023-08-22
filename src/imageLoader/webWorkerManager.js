@@ -50,7 +50,8 @@ const statistics = {
 };
 
 let downscale = 1024;
-let isDownscaleActive = true;
+
+let isDownscaleActive = false;
 
 /**
  * Function to start a task on a web worker
@@ -84,8 +85,8 @@ function startTaskOnWebWorker() {
         {
           taskType: task.taskType,
           workerIndex: i,
-          downscale: downscale,
-          isDownscaleActive: isDownscaleActive,
+          downscale,
+          isDownscaleActive,
           data: task.data,
         },
         task.transferList

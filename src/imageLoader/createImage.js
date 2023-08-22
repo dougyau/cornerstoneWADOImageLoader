@@ -57,11 +57,14 @@ function convertToIntPixelData(floatPixelData) {
 function setPixelDataType(imageFrame, preScale) {
   const isScaled = preScale?.scaled;
   const scalingParmeters = preScale?.scalingParameters;
+
   let isNegative = false;
+
   if (isScaled && scalingParmeters) {
     const rescaleSlope = scalingParmeters?.rescaleSlope || 1;
     const rescaleIntercept = scalingParmeters?.rescaleIntercep || 0;
     const suvbw = scalingParmeters?.suvbw || 1;
+
     isNegative =
       suvbw *
         (imageFrame.smallestPixelValue * rescaleSlope + rescaleIntercept) <

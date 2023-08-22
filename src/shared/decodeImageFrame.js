@@ -97,6 +97,7 @@ async function decodeImageFrame(
       break;
     case '1.2.840.10008.1.2.4.90':
       opts = {
+        signed: imageFrame.pixelRepresentation === 1, // imageFrame.signed,
         ...imageFrame,
       };
 
