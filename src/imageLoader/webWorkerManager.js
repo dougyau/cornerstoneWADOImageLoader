@@ -192,6 +192,7 @@ function initialize(configObject) {
 
   config.maxWebWorkers =
     config.maxWebWorkers || navigator.hardwareConcurrency || 1;
+  console.log('Workers concurrency: ' + config.maxWebWorkers);
 
   // Spawn new web workers
   if (!config.startWebWorkersOnDemand) {
