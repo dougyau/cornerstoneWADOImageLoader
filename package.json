@@ -101,9 +101,9 @@
   },
   "dependencies": {
     "@babel/eslint-parser": "^7.19.1",
-    "@cornerstonejs/codec-charls": "^1.2.3",
+    "@dougyau/codec-charls": "^0.2.0",
     "@cornerstonejs/codec-libjpeg-turbo-8bit": "^1.2.2",
-    "@cornerstonejs/codec-openjpeg": "^1.2.2",
+    "@dougyau/codec-openjpeg": "^0.2.0",
     "@cornerstonejs/codec-openjph": "^2.4.2",
     "coverage-istanbul-loader": "^3.0.5",
     "date-format": "^4.0.14",
