@@ -24,7 +24,11 @@ function get(imageId) {
   // Check if the metadata is already available
   const metadata = metadataByImageURI[imageURI];
 
-  if (metadata && !metadata?.isMultiframe) {
+  if (
+    metadata &&
+    metadata.isMultiframe !== undefined &&
+    !metadata.isMultiframe
+  ) {
     // Return the metadata for single-frame images
     return metadata;
   }
