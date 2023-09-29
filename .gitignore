@@ -9,3 +9,4 @@ npm-debug.log
 .idea
 .DS_Store
 yarn.lock
+src/version.js
