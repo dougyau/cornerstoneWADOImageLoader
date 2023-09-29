@@ -1,5 +1,5 @@
 {
-  "name": "cornerstone-wado-image-loader",
+  "name": "@dougyau/cornerstone-wado-image-loader",
   "version": "0.0.0-semantically-released",
   "description": "Cornerstone Image Loader for DICOM WADO-URI and WADO-RS",
   "keywords": [
@@ -15,7 +15,11 @@
   "main": "./dist/cornerstoneWADOImageLoader.bundle.min.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cornerstonejs/cornerstoneWADOImageLoader.git"
+    "url": "https://github.com/dougyau/cornerstoneWADOImageLoader.git"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
     "cm": "npx git-cz",

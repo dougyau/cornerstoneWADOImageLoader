@@ -1,9 +1,9 @@
-import charlsFactory from '@cornerstonejs/codec-charls/decodewasmjs';
-// import charlsFactory from '@cornerstonejs/codec-charls/dist/debug/charlswasm.js';
+import charlsFactory from '@dougyau/codec-charls/decodewasmjs';
+// import charlsFactory from '@dougyau/codec-charls/dist/debug/charlswasm.js';
 
 // Webpack asset/resource copies this to our output folder
-import charlsWasm from '@cornerstonejs/codec-charls/decodewasm';
-// import charlsWasm from '@cornerstonejs/codec-charls/dist/debug/charlswasm.wasm';
+import charlsWasm from '@dougyau/codec-charls/decodewasm';
+// import charlsWasm from '@dougyau/codec-charls/dist/debug/charlswasm.wasm';
 
 const local = {
   codec: undefined,
