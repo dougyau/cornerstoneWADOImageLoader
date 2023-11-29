@@ -57,48 +57,48 @@ async function handler(data, doneCallback) {
     );
   }
 
-  // snippet for resizing the image pixel data for Mobile
-  imageFrame.scaledImageFactor = 1;
-  imageFrame.downscalerEnabled = data.isDownscaleActive;
-  const maxSize = Math.max(imageFrame.columns, imageFrame.rows);
-  imageFrame.isScalable =
-    imageFrame.samplesPerPixel === 1 &&
-    data.downscale > 0 &&
-    maxSize > data.downscale;
-
-  if (imageFrame.isScalable && imageFrame.downscalerEnabled) {
-    const factor = maxSize / data.downscale;
-    const width = imageFrame.columns; // width is columns
-    const height = imageFrame.rows;
-    const newWidth = Math.floor(width / factor);
-    const newHeight = Math.floor(height / factor);
-
-    // create new array same type as original
-    const resizedPixelData = new imageFrame.pixelData.constructor(
-      newWidth * newHeight
-    );
-    // resize using nearest neighbour interpolation
-    for (let i = 0; i < resizedPixelData.length; i++) {
-      const x = i % newWidth;
-      const y = Math.floor(i / newWidth);
-
-      const projX = Math.floor(x * factor);
-      const projY = Math.floor(y * factor);
-      const projI = projX + projY * width;
-
-      resizedPixelData[i] = imageFrame.pixelData[projI];
-    }
-
-    imageFrame.columns = newWidth;
-    imageFrame.rows = newHeight;
-    imageFrame.pixelData = resizedPixelData;
-    imageFrame.pixelDataLength = resizedPixelData.length;
-    imageFrame.scaledImageFactor = factor;
-    // window.cornerstoneImageFactor[]
-    console.log(
-      `Downsample the image. Threshold=${data.downscale}px Factor=${factor}`
-    );
-  }
+  // // snippet for resizing the image pixel data for Mobile
+  // imageFrame.scaledImageFactor = 1;
+  // imageFrame.downscalerEnabled = data.isDownscaleActive;
+  // const maxSize = Math.max(imageFrame.columns, imageFrame.rows);
+  // imageFrame.isScalable =
+  //   imageFrame.samplesPerPixel === 1 &&
+  //   data.downscale > 0 &&
+  //   maxSize > data.downscale;
+  //
+  // if (imageFrame.isScalable && imageFrame.downscalerEnabled) {
+  //   const factor = maxSize / data.downscale;
+  //   const width = imageFrame.columns; // width is columns
+  //   const height = imageFrame.rows;
+  //   const newWidth = Math.floor(width / factor);
+  //   const newHeight = Math.floor(height / factor);
+  //
+  //   // create new array same type as original
+  //   const resizedPixelData = new imageFrame.pixelData.constructor(
+  //     newWidth * newHeight
+  //   );
+  //   // resize using nearest neighbour interpolation
+  //   for (let i = 0; i < resizedPixelData.length; i++) {
+  //     const x = i % newWidth;
+  //     const y = Math.floor(i / newWidth);
+  //
+  //     const projX = Math.floor(x * factor);
+  //     const projY = Math.floor(y * factor);
+  //     const projI = projX + projY * width;
+  //
+  //     resizedPixelData[i] = imageFrame.pixelData[projI];
+  //   }
+  //
+  //   imageFrame.columns = newWidth;
+  //   imageFrame.rows = newHeight;
+  //   imageFrame.pixelData = resizedPixelData;
+  //   imageFrame.pixelDataLength = resizedPixelData.length;
+  //   imageFrame.scaledImageFactor = factor;
+  //   // window.cornerstoneImageFactor[]
+  //   console.log(
+  //     `Downsample the image. Threshold=${data.downscale}px Factor=${factor}`
+  //   );
+  // }
 
   calculateMinMax(imageFrame, strict);
 

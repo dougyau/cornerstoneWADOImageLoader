@@ -64,9 +64,10 @@ async function decodeAsync(compressedImageFrame, imageInfo) {
   frameInfo.isSigned = imageInfo.signed;
   // get the decoded pixels
   const decodedBufferInWASM = decoder.getDecodedBuffer();
-  const imageFrame = new Uint8Array(decodedBufferInWASM.length);
-
-  imageFrame.set(decodedBufferInWASM);
+  // console.log(decodedBufferInWASM);
+  // const imageFrame = new Uint8Array(decodedBufferInWASM.length);
+  //
+  // imageFrame.set(decodedBufferInWASM);
 
   const imageOffset = `x: ${decoder.getImageOffset().x}, y: ${
     decoder.getImageOffset().y
